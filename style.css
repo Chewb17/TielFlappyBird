@@ -2,15 +2,33 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh; /* 100% da altura da janela de visualização */
     margin: 0;
-    background-color: #70c5ce; /* Cor de fundo azul claro */
+    background-color: #70c5ce;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Para evitar barras de rolagem em telas pequenas */
+    overflow: hidden; /* Impede barras de rolagem na página */
 }
 
 canvas {
-    border: 2px solid #000;
-    display: block; /* Para evitar espaço extra abaixo do canvas */
-    /* As dimensões do canvas são definidas via JavaScript para melhor controle */
+    display: block; /* Comportamento de bloco para o canvas */
+    background-color: #70c5ce; /* Cor de fundo caso a imagem de fundo do jogo não carregue */
+
+    /* Mantém a proporção definida no JavaScript (640x640, então 1/1) */
+    /* Estas regras farão o canvas escalar para caber na tela */
+    max-width: 100vw;   /* Largura máxima é 100% da largura da janela de visualização */
+    max-height: 100vh;  /* Altura máxima é 100% da altura da janela de visualização */
+
+    /* Para manter a proporção e centralizar se uma dimensão for limitante antes da outra */
+    /* A combinação de max-width/max-height com width/height auto em um elemento com
+       dimensões intrínsecas (como o canvas definido no JS) geralmente
+       resulta em um comportamento de "contain" */
+    width: auto;
+    height: auto;
+
+    /* Se o canvas ainda estiver muito colado nas bordas em algumas telas,
+       você pode usar um valor ligeiramente menor para max-width ou max-height,
+       por exemplo: max-width: 95vw; max-height: 95vh; */
+
+    border: 2px solid #000; /* Sua borda atual */
+    object-fit: contain; /* Garante que o conteúdo do canvas seja dimensionado para caber */
 }
