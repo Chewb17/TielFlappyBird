@@ -2,7 +2,7 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 // --- Configurações do Jogo ---
-canvas.width = 640;
+canvas.width = 480;
 canvas.height = 640;
 
 // Imagem do Pássaro
