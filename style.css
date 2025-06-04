@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #70c5ce; /* Cor de fundo azul claro */
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Para evitar barras de rolagem em telas pequenas */
+}
+
+canvas {
+    border: 2px solid #000;
+    display: block; /* Para evitar espaço extra abaixo do canvas */
+    /* As dimensões do canvas são definidas via JavaScript para melhor controle */
+}
